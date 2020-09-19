@@ -23,7 +23,7 @@ async function init() {
     method: "put",
     url: `https://api.anymod.com/v0/mods/${modId}`,
     headers: {
-      authorization: `Bearer ${process.env.API_BEARER}`,
+      authorization: `Bearer ${process.env.ANYMOD_UPDATE_TOKEN}`,
     },
     data: {
       rawHtml: `<div id="${modId}"></div>`,

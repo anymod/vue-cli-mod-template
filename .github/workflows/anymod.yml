@@ -22,4 +22,4 @@ jobs:
       - run: npm run build
       - run: npm run mod
         env:
-          API_BEARER: ${{ secrets.API_BEARER }}
+          ANYMOD_UPDATE_TOKEN: ${{ secrets.ANYMOD_UPDATE_TOKEN }}
