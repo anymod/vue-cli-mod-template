@@ -19,23 +19,30 @@ async function getFileString(path, fileType) {
 async function init() {
   const rawCss = await getFileString("./dist/css", "css");
   const rawJs = await getFileString("./dist/js", "js");
-  return axios({
-    method: "put",
-    url: `https://api.anymod.com/v0/mods/${modId}`,
-    headers: {
-      authorization: `Bearer ${process.env.ANYMOD_UPDATE_TOKEN}`,
-    },
-    data: {
-      rawHtml: `<div id="${modId}"></div>`,
-      rawCss,
-      rawJs,
-    },
-  })
-    .then(process.exit)
-    .catch((error) => {
-      console.log(error.message);
-      process.exit();
-    });
+  /**
+   * Commented this section out so that it doesn't accidentally auto-deploy
+   * to a live mod.
+   *
+   * To make it work in a real scenario, uncomment this section, along with
+   * updating the modId above to match a real mod.
+   */
+  // return axios({
+  //   method: "put",
+  //   url: `https://api.anymod.com/v0/mods/${modId}`,
+  //   headers: {
+  //     authorization: `Bearer ${process.env.ANYMOD_UPDATE_TOKEN}`,
+  //   },
+  //   data: {
+  //     rawHtml: `<div id="${modId}"></div>`,
+  //     rawCss,
+  //     rawJs,
+  //   },
+  // })
+  //   .then(process.exit)
+  //   .catch((error) => {
+  //     console.log(error.message);
+  //     process.exit();
+  //   });
 }
 
 module.exports = { init, modId };
