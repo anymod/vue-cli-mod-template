@@ -2,7 +2,7 @@ const axios = require("axios");
 const fs = require("fs");
 
 // Change this to match mod id
-const modId = "ororob";
+const modId = "abcxyz";
 
 async function getFileString(path, fileType) {
   const dir = await fs.promises.readdir(path, { withFileTypes: true });
